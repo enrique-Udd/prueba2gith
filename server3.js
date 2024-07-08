@@ -5,7 +5,9 @@ const HTML_CONTENT_TYPE ='text/html'
 const requireListener =(req, res)=>{
     res.wtriteHead(200, {'Content-Type':
         HTML_CONTENT_TYPE})
-        createReadStream('./public/inde.html').pipe(res)
+        createReadStream('../public/index.html').pipe(res)
 }
 const server=createReadStream(requireListener)
-server.listen(PORT) 
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });

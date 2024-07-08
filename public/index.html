@@ -1,16 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PRACTICA 2</title>
+  <title>Operaciones</title>
 </head>
-<body>
-  <h1>¡Hola, mundo!</h1>
-  <p>Enrique</p>
-  <ul>
-    <li>suma</li>
-    <li>resta</li>
-    <li>multiplicacion</li>
-  </ul>
-  <a href="https://youtu.be/VekONjmMyJU?si=NIGx_qTqxIre62s4">Enlace a otra página</a>
+<body style="text-align: center;">
+  <h1 style="text-align: center;">Operaciones</h1>
+  <label>Ingresa un numero</label>
+  <input id="numero1" type="number"></br></br>
+  <label>Ingresa un numero</label>
+  <input id="numero2" type="number"></br></br>
+  <label>Resutado</label>
+  <input id="resultado" disabled></br></br>
+
+  <button onclick="realizarOperacion('suma')">Suma</button></br></br>
+  <button onclick="realizarOperacion('resta')">Resta</button></br></br>
+  <button onclick="realizarOperacion('multiplicacion')">Multiplicacion</button></br></br>
+  <button onclick="realizarOperacion('division')">Division</button>
+
+  <script src="mate2.js"></script>
+  <script>
+    function realizarOperacion(operacion) {
+      var num1 = parseFloat(document.getElementById('numero1').value);
+      var num2 = parseFloat(document.getElementById('numero2').value);
+      var resultado = document.getElementById('resultado');
+
+      switch (operacion) {
+        case 'suma':
+          resultado.value = suma(num1, num2);
+          break;
+        case 'resta':
+          resultado.value = resta(num1, num2);
+          break;
+        case 'multiplicacion':
+          resultado.value = multiplicacion(num1, num2);
+          break;
+        case 'division':
+          resultado.value = division(num1, num2);
+          break;
+        default:
+          resultado.value = 'Operación no reconocida';
+      }
+    }
+  </script>
 </body>
 </html>
